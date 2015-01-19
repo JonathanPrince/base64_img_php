@@ -20,6 +20,7 @@ class B64img {
 
         } else if (strpos($input, 'data:') == 0) {
 
+            $this->data_URI  = $input;
 
         } else {
 
@@ -56,6 +57,31 @@ class B64img {
     public function get_data() {
 
         return $this->data_URI;
+
+    }
+
+    /**
+    * @param string path and filename for file
+    * @return boolean true on success
+    */
+
+    public function save_as($target) {
+
+        $file_data = preg_replace('data\:image\/.+\;base64\,', '', $data_URI);
+        $file_data = base64_decode($file_data);
+
+        $success = file_put_contents($target, $file_data);
+
+        if ($success != false) {
+
+            return true;
+
+        } else {
+
+            return false;
+
+        }
+
     }
 
 
