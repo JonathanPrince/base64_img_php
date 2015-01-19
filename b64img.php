@@ -29,7 +29,6 @@ class B64img {
     }
 
     /**
-    *   checks mime type of file
     *   @return boolean true if mime type is an image
     */
 
@@ -48,6 +47,15 @@ class B64img {
 
         }
 
+    }
+
+    /**
+    * @return string base64 encoded image
+    */
+
+    public function get_data() {
+
+        return $this->data_URI;
     }
 
 
