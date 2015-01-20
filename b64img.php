@@ -24,6 +24,7 @@ class B64img {
 
         } else {
 
+            throw new Exception('Input should be a file or base64 data string.');
 
         }
 
