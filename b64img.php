@@ -18,7 +18,7 @@ class B64img {
 
             }
 
-        } else if (strpos($input, 'data:') == 0) {
+        } else if (preg_match('/data\:image\/.+\;base64\,/', $input)) {
 
             $this->data_URI  = $input;
 
